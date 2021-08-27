@@ -5,13 +5,13 @@ const Products = () => {
       <h1>The Products Page</h1>
       <ul>
         <li>
-          <Link to='/product-details/boat'>A boat</Link>
+          <Link to="/products/boat">A boat</Link>
         </li>
         <li>
-          <Link to='/product-details/book'>A Book</Link>
+          <Link to="/products/book">A Book</Link>
         </li>
         <li>
-          <Link to='/product-details/a-train'>A Train</Link>
+          <Link to="/products/a-train">A Train</Link>
         </li>
       </ul>
     </>
