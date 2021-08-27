@@ -10,9 +10,14 @@ const QuoteList = (props) => {
 
   useEffect(() => {
     (async () => {
-      const quotes = await axios.get(dbUrl);
-
-      console.log(quotes.data);
+      const result = await axios.get(dbUrl);
+      // const result = Object.entries(quotes.data);
+      const quotes = Object.keys(result.data).map((key) => {
+        return result.data[key];
+      });
+      // array bet be id :((((
+      console.log(quotes);
+      setQuotes(quotes);
     })();
   }, []);
 
@@ -33,7 +38,7 @@ const QuoteList = (props) => {
       </div>
       <ul className={classes.list}>
         {(quotes || []).map((quote) => (
-          <QuoteItem key={quote.id} id={quote.id} author={quote.author} text={quote.text} />
+          <QuoteItem key={quote.author} id={quote.id} author={quote.author} text={quote.text} />
         ))}
       </ul>
     </Fragment>
