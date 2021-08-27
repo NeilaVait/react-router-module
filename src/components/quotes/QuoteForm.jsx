@@ -7,7 +7,7 @@ const QuoteForm = (props) => {
   const authorInputRef = useRef();
   const textInputRef = useRef();
 
-  function submitFormHandler(event) {
+  const submitFormHandler = (event) => {
     event.preventDefault();
 
     const enteredAuthor = authorInputRef.current.value;
@@ -15,8 +15,10 @@ const QuoteForm = (props) => {
 
     // optional: Could validate here
 
-    props.onAddQuote({ author: enteredAuthor, text: enteredText });
-  }
+    const quoteData = { author: enteredAuthor, text: enteredText };
+
+    props.onAddQuote(quoteData);
+  };
 
   return (
     <Card>

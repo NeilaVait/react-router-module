@@ -1,10 +1,20 @@
-import { Fragment, useState } from 'react';
+import axios from 'axios';
+import { Fragment, useEffect, useState } from 'react';
 import QuoteItem from './QuoteItem';
 import classes from './QuoteList.module.css';
+import { dbUrl } from './../../config';
 
 const QuoteList = (props) => {
   const [quotes, setQuotes] = useState(props.quotes);
   const [direction, setDirection] = useState('asc');
+
+  useEffect(() => {
+    (async () => {
+      const quotes = await axios.get(dbUrl);
+
+      console.log(quotes.data);
+    })();
+  }, []);
 
   const sortHandler = () => {
     if (direction === 'desc') {
